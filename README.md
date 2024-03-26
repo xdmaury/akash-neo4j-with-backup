@@ -56,7 +56,7 @@ services:
           mount: /var/lib/neo4j/data
           readOnly: false
   neo4j-backup:
-    image: xdmaury/neo4j-backup:v1.0.0
+    image: xdmaury/neo4j-backup:v1.1.0
     expose:
       - port: 22
         as: 22
