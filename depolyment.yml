@@ -14,6 +14,8 @@ services:
           - global: true
       - port: 6362
         as: 6362
+        to:
+          - service: neo4j-backup
     env:
       - NEO4J_server_config_strict__validation_enabled=false
       - NEO4J_server_default__listen__address=0.0.0.0
@@ -34,6 +36,8 @@ services:
           readOnly: false
   neo4j-backup:
     image: xdmaury/neo4j-backup:v1.0.0
+    depends_on:
+      - service: neo4j-db
     expose:
       - port: 22
         as: 22
